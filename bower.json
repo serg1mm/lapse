@@ -1,0 +1,23 @@
+{
+  "name": "lapsense",
+  "version": "1.0.0",
+  "description": "capture your moments and create geometries",
+  "main": "index.html",
+  "keywords": [
+    "sensors",
+    "3D",
+    "threejs",
+    "webapp"
+  ],
+  "authors": [
+    "Sergi Mondéjar Marín"
+  ],
+  "license": "MIT",
+  "homepage": "lapsense.es",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.5",
+    "google-map": "GoogleWebComponents/google-map#~0.4.2",
+    "geo-location": "ebidel/geo-location#master",
+    "google-signin": "GoogleWebComponents/google-signin#~0.3.0"
+  }
+}
