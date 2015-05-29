@@ -1,9 +1,5 @@
-		if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
-
-			// switch wireframe
 
 			// random background color
-
 			function ran_col() {
                 var color = '#';
                 var letters = ['ef4437','e71f63','8f3e97','65499d','4554a4','478fcc','38a4dc','09bcd3', '009688','4cae4e','8bc248','cddc37','feea39','fdc010','f8971c','f0592b','607d8b', '795548'];
@@ -11,15 +7,6 @@
 
                 return color;
             }
-
-			// prepare three.js
-
-			var container;
-			var camera, controls, scene, renderer;
-
-			init();
-			render();
-
 			function animate() {
 
 				requestAnimationFrame(animate);
@@ -28,9 +15,8 @@
 
 			}
 
-			function init() {
+			function init(def_col) {
 
-				var def_col = ran_col();
 
 				// color frontal layout
 
@@ -50,26 +36,30 @@
 				controls.damping = 0.2;
 				controls.addEventListener( 'change', render );
 
-				scene = new THREE.Scene();
-				scene.fog = new THREE.FogExp2( def_col, 0.0009 );
-				bg = document.body.style;
-
-
-				var light, geometry, material, mesh;
-
-
-				// random convex
-
-				materials = [
-					new THREE.MeshLambertMaterial( { color: def_col, shading: THREE.FlatShading } ) // material random color
-				];
-
 				points = [];
 				for ( var i = 3; i < 100; i ++ ) {
 
 					points.push( randomPointInSphere( 100 ) ); // scale
 
 				}
+				return points;
+
+			}
+
+
+			function creatObject3D(points,def_col){
+
+				scene = new THREE.Scene();
+				scene.fog = new THREE.FogExp2( def_col, 0.0009 );
+				bg = document.body.style;
+				// random convex
+
+				materials = [
+					new THREE.MeshLambertMaterial( { color: def_col, shading: THREE.FlatShading } ) // material random color
+				];
+
+
+				var light, geometry, material, mesh;
 
 				object = THREE.SceneUtils.createMultiMaterialObject( new THREE.ConvexGeometry( points ), materials );
 				scene.add( object );

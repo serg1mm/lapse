@@ -15,6 +15,10 @@ body {
 	top: -100px;
 }
 
+#mainheader{
+  background-color: grey;
+}
+
 core-header-panel {
   background: transparent;
 }
@@ -25,7 +29,6 @@ core-drawer-panel {
 
 core-toolbar {
   background-color: transparent;
-
 }
 
 .content {
@@ -42,9 +45,12 @@ core-toolbar {
 	position: fixed;
 	height: 100%;
 	width: 100%;
-	bottom: -540px;
+	bottom: -85%;
 	left: 42.5%;
+}
 
+.hidden{
+  display: none;
 }
 
 .map {

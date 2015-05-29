@@ -11,6 +11,7 @@
 
 	<script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
 	<script type="text/javascript" src="js/haptic/haptic.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
 	<link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
 	<link rel="import" href="bower_components/core-menu/core-menu.html">
@@ -46,6 +47,12 @@ document.addEventListener('polymer-ready', function() {
   navicon.addEventListener('click', function() {
     drawerPanel.togglePanel();
   });
+
+  /*var accept = document.getElementById('accept');
+  var drawerPanel = document.getElementById('drawerPanel');
+  accept.addEventListener('click', function() {
+    drawerPanel.togglePanel();
+  });*/
 });
 </script>
 
@@ -73,16 +80,41 @@ document.addEventListener('polymer-ready', function() {
 		</div>
 	</core-header-panel>
 
+
 	<!-- frontal layer -->
 
 	<core-header-panel main mode="seamed">
 		<core-toolbar id="mainheader" style="color:white" >
 			<paper-icon-button id="navicon" icon="menu"></paper-icon-button>
+			<paper-icon-button id="accept" icon="done" class="hidden"></paper-icon-button>
 			<paper-input-decorator class="custom" label="#yourhastag"><input id="i1" is="core-input" maxlength="20" type="search">
 				<paper-char-counter class="counter" target="i1"></paper-char-counter>
 			</paper-input-decorator>
-			<paper-icon-button id="navicon" icon="refresh" onclick="window.open('index.html','_parent');"></paper-icon-button>
+			<paper-icon-button id="refresh" icon="refresh" onclick="window.open('index.html','_parent');"></paper-icon-button>
+			<paper-icon-button id="cancel" icon="clear" class="hidden" onclick="window.open('index.html','_parent');"></paper-icon-button>
 		</core-toolbar>
+
+	<!-- List of old captures-->
+
+	<!--<core-header-panel mode="waterfall-tall" drawer style="background-color: white; ">
+		<core-toolbar id="navheader" class="tall">
+			<img class="middle profile" src="img/profile.jpg" hidden?="img/cover.jpg" ></img>
+			<div class="bottom" layout vertical>
+				<span>Putas Capturas</span>
+			</div>
+		</core-toolbar>
+		<div class="sidemenu">
+			<core-selector>
+				<div class="separator"></div>
+				<paper-item><core-icon icon="polymer"></core-icon>My lapses</paper-item>
+				<div class="separator" style="margin-top: 6px; "></div>
+				<paper-item><core-icon icon="settings"></core-icon>Settings</paper-item>
+				<paper-item><core-icon icon="help"></core-icon>About</paper-item>
+				<div class="separator"></div>
+			</core-selector>
+		</div>
+	</core-header-panel>-->
+
 
 	<!-- threejs random geometry -->
 
@@ -94,11 +126,12 @@ document.addEventListener('polymer-ready', function() {
 	<script src="js/threejs/lapse_color.js"></script>
 
 
+
 		<!-- capture button -->
 
 
 		<div class="capture">
-			<paper-fab id="fab1" icon="polymer" onclick="shortAndSharp(1);"></paper-fab>
+			<paper-fab id="fab1" icon="polymer"></paper-fab>
 		</div>
 	</core-header-panel>
 
@@ -116,6 +149,6 @@ document.addEventListener('polymer-ready', function() {
 </div>
 
 
-
+	<script src="js/captureButtonProcess.js"></script>
 
 </body>
