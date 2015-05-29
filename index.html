@@ -5,12 +5,13 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 	<meta name="mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-capable" content="yes" /> 
-	<meta name="theme-color" content="#3F51B5">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+
 	<link rel="manifest" href="/manifest.json">
 
 	<script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
-	
+	<script type="text/javascript" src="js/haptic/haptic.js"></script>
+
 	<link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
 	<link rel="import" href="bower_components/core-menu/core-menu.html">
 	<link rel="import" href="bower_components/core-item/core-item.html">
@@ -25,14 +26,19 @@
 	<link rel="import" href="bower_components/core-image/core-image.html">
 	<link rel="import" href="bower_components/paper-item/paper-item.html">
 	<link rel="import" href="bower_components/paper-input/paper-input.html">
-	<link rel="import" href="components/paper-fab/paper-fab.html">
+	<link rel="import" href="bower_components/paper-fab/paper-fab.html">
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	
-</head> 
+
+
+
+</head>
 
 <body fullbleed unresolved>
 <geo-location watchpos></geo-location>
+
+<!-- sidemenu + frontal layer -->
+
 <script>
 document.addEventListener('polymer-ready', function() {
   var navicon = document.getElementById('navicon');
@@ -42,11 +48,14 @@ document.addEventListener('polymer-ready', function() {
   });
 });
 </script>
+
 <core-drawer-panel id="drawerPanel" drawerWidth="300px">
+
+	<!-- sidemenu -->
 
 	<core-header-panel mode="waterfall-tall" drawer style="background-color: white; ">
 		<core-toolbar id="navheader" class="tall">
-			<img class="middle profile" src="img/profile.jpg" hidden?="img/cover.jpg" >
+			<img class="middle profile" src="img/profile.jpg" hidden?="img/cover.jpg" ></img>
 			<div class="bottom" layout vertical>
 			<span>Sergi Mondéjar Marín</span>
 			<span>hola@sergimm.com</span>
@@ -64,26 +73,49 @@ document.addEventListener('polymer-ready', function() {
 		</div>
 	</core-header-panel>
 
+	<!-- frontal layer -->
 
-  <core-header-panel main mode="seamed">
-    <core-toolbar id="mainheader" >
-      <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
-      <paper-input-decorator class="custom" label="#yourhastag"><input id="i1" is="core-input" maxlength="20">
-      <paper-char-counter class="counter" target="i1"></paper-char-counter>
-    </paper-input-decorator>
-      <paper-icon-button icon="refresh" onclick="window.open('index.html','_parent');"></paper-icon-button>
-    </core-toolbar>
-  </core-header-panel>
-  
+	<core-header-panel main mode="seamed">
+		<core-toolbar id="mainheader" style="color:white" >
+			<paper-icon-button id="navicon" icon="menu"></paper-icon-button>
+			<paper-input-decorator class="custom" label="#yourhastag"><input id="i1" is="core-input" maxlength="20" type="search">
+				<paper-char-counter class="counter" target="i1"></paper-char-counter>
+			</paper-input-decorator>
+			<paper-icon-button id="navicon" icon="refresh" onclick="window.open('index.html','_parent');"></paper-icon-button>
+		</core-toolbar>
+
+	<!-- threejs random geometry -->
+
+	<div id="container"></div>
+	<script src="js/threejs/three.min.js"></script>
+	<script src="js/threejs/geometries/ConvexGeometry.js"></script>
+	<script src="js/threejs/libs/OrbitControls.js"></script>
+	<script src="js/threejs/Detector.js"></script>
+	<script src="js/threejs/lapse_color.js"></script>
+
+
+		<!-- capture button -->
+
+
+		<div class="capture">
+			<paper-fab id="fab1" icon="polymer" onclick="shortAndSharp(1);"></paper-fab>
+		</div>
+	</core-header-panel>
+
 </core-drawer-panel>
 
- <div class="content" >
- 	<paper-fab icon="cloud" style="color: blue; z-index:99;"></paper-fab>
-    <template is="auto-binding">
-    	<geo-location latitude="{{lat}}" longitude="{{lng}}" watchpos highaccuracy></geo-location>   			
+
+
+<!-- map -->
+
+<div class="map" >
+	<template is="auto-binding">
+    	<geo-location latitude="{{lat}}" longitude="{{lng}}" watchpos highaccuracy></geo-location>
    		<google-map latitude="{{lat}}" longitude="{{lng}}" minZoom="14" maxZoom="14" disableDefaultUI showCenterMarker fit></google-map>
    	</template>
+</div>
 
 
-    </div>
+
+
 </body>

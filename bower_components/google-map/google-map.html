@@ -545,7 +545,7 @@ attribute to be true.
      * @type number
      * @default 37.77493
      */
-    latitude: 37.77493,
+    latitude: "{{lat}}",
 
     /**
      * A comma separated list (e.g. "places,geometry") of libraries to load
@@ -565,7 +565,7 @@ attribute to be true.
      * @type number
      * @default -122.41942
      */
-    longitude: -122.41942,
+    longitude: "{{lng}}",
 
     /**
      * A zoom level to set the map to.
@@ -999,11 +999,5 @@ attribute to be true.
 
   });
 
-var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
-var marker = new google.maps.Marker({
-  position: myLatLng,
-  map: map,
-  icon: iconBase + 'schools_maps.png'
-});
 </script>
 </polymer-element>
