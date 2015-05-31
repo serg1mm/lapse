@@ -6,6 +6,8 @@ body {
 	font-family: 'RobotoDraft', sans-serif;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	-webkit-touch-callout: none;
+  background-color: #eaeaea;
+  overflow: hidden;
 }
 
 #container {
@@ -17,6 +19,49 @@ body {
 
 #mainheader{
   background-color: grey;
+}
+
+#listHeader{
+  background-color: grey;
+  line-height: 64px;
+  height: 64px;
+}
+
+#lateral{
+  background-color: #eaeaea;
+  width: 100%;
+  min-height: 1000px;
+  color: white;
+}
+
+#back{
+  margin-top: 12px;
+  margin-left: 10px;
+}
+
+#listLateral{
+  margin-left: 100%;
+  z-index: 100;
+  background-color: #eaeaea;
+}
+#theList{
+  overflow: inherit;
+}
+
+.ficha{
+  border-radius: 2px;
+  height: 140px;
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+  color:black;
+  background-color: white;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.ficha span{
+
 }
 
 core-header-panel {
@@ -48,7 +93,10 @@ core-toolbar {
 	bottom: -85%;
 	left: 42.5%;
 }
-
+#iconList{
+  color:grey;
+  left: 30%;
+}
 .hidden{
   display: none;
 }
