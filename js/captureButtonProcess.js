@@ -50,7 +50,6 @@ jQuery(document).ready(function () {
 	        duration: 700
 	    });
   		var drawerPanel = document.getElementById('drawerPanel');
-  		sleep(200);
     	drawerPanel.togglePanel();
 
 	    $('#mainheader').addClass('hidden');

@@ -50,18 +50,53 @@ body {
 
 .ficha{
   border-radius: 2px;
-  height: 140px;
   width: 90%;
   margin: auto;
   margin-top: 20px;
   color:black;
   background-color: white;
   text-align: center;
-  padding-top: 30px;
+  position: relative;
 }
 
-.ficha span{
+.ficha img{
+  width: 100%;
+}
 
+.ficha .hash{
+  position: absolute;
+  color: white;
+  z-index: 30;
+  top: 40%;
+  left: 5%;
+  font-size: 20px;
+}
+
+.ficha .ubication{
+  position: absolute;
+  color: rgba(255,255,255,0.7);
+  z-index: 30;
+  top: 50%;
+  left: 5%;
+  font-size: 13px;
+  margin-bottom: 0px;
+  line-height: 50px;
+}
+
+.ficha .ubication-icon{
+  float: left;
+  line-height: 17px;
+  margin-top: 16px;
+}
+.ficha .ubication-text{
+  float: left;
+}
+
+.ficha .buttons{
+  color: grey;
+  text-align: right;
+  padding-right: 15px;
+  margin-top: 0px;
 }
 
 core-header-panel {

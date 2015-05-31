@@ -119,30 +119,7 @@ document.addEventListener('polymer-ready', function() {
 			    <paper-icon-button id="back" icon="arrow-back"></paper-icon-button>
 			</div>
 			<div id='theList'>
-				<div class="ficha">
-					<span>#TuMierdaDePiedra</span>
-					<span>xtcyvguhijokxdtcyvuy<br />binimdxcfgvbhnj</span>
-				</div>
-				<div class="ficha">
-					<span>#TuMierdaDePiedra</span>
-					<span>xtcyvguhijokxdtcyvuy<br />binimdxcfgvbhnj</span>
-				</div>
-				<div class="ficha">
-					<span>#TuMierdaDePiedra</span>
-					<span>xtcyvguhijokxdtcyvuy<br />binimdxcfgvbhnj</span>
-				</div>
-				<div class="ficha">
-					<span>#TuMierdaDePiedra</span>
-					<span>xtcyvguhijokxdtcyvuy<br />binimdxcfgvbhnj</span>
-				</div>
-				<div class="ficha">
-					<span>#TuMierdaDePiedra</span>
-					<span>xtcyvguhijokxdtcyvuy<br />binimdxcfgvbhnj</span>
-				</div>
-				<div class="ficha">
-					<span>#TuMierdaDePiedra</span>
-					<span>xtcyvguhijokxdtcyvuy<br />binimdxcfgvbhnj</span>
-				</div>
+				<?php include('list.php'); ?>
 			</div>
 		</div>
 	</div>
